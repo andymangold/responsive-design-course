@@ -1,5 +1,25 @@
 @import "bourbon";
 
-h1 {
-  color: pink;
+$black: #333;
+$max-body-width: 28em;
+
+html {
+  color: $black;
+  font-size: 24px;
+}
+
+%body-text-element {
+  max-width: $max-body-width;
+}
+
+p {
+  @extend %body-text-element;
+}
+
+ul {
+  @extend %body-text-element;
+}
+
+blockquote {
+  @extend %body-text-element;
 }
