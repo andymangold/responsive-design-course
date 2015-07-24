@@ -1,10 +1,109 @@
 ---
-title: Welcome to Middleman
+title: Designing and Building Responsively
 ---
 
-<div class="welcome">
-  <h1>Middleman is Watching</h1>
-  <p class="doc">
-    <%= link_to "Read Online Documentation", "http://middlemanapp.com/" %>
-  </p><!-- .doc -->
-</div><!-- .welcome -->
+<h1>Designing and Building Responsively</h1>
+
+<h2>What is responsive design?</h2>
+<p>
+  In theory: the layout, content, and design of a page should change based on the context in which it is viewed.
+</p>
+<p>
+  In practice: creating a set of rules (CSS) that work regardless of size or type of device.
+</p>
+<p>
+  Meaningfully: It was a change that happened, and we are now beyond it. Everything that happens in the development of design from here on out will be influenced by responsive design necessarily. As far as I am concerned, every website should be built responsively by default, and soon what we now call responsive design will just be normal design.
+</p>
+
+<h2>What we will not be covering</h2>
+<ul>
+  <li>
+    Mobile sites: separate versions of websites served specifically to mobile devices. Different code, different assets.
+  </li>
+  <li>
+    Mobile apps: programs built in native, non-web technologies to run on mobile devices.
+  </li>
+  <li>
+    “Responsive Grids”: No dependencies or libraries! The idea of a grid system, where there are a set number of columns across the page, and individual elements are span a certain number of columns, is a broken system for web design. We will not be covering it in this course, and I strongly suggest you avoid using “responsive grid” frameworks. It will hinder your learning and understanding of the true nature of the problem.
+  </li>
+</ul>
+
+<h2>How to do it?</h2>
+<p>
+  Making a responsive design is technically simple. Media queries allow you to choose styles to apply only at certain screen sizes.
+</p>
+<p>
+  The complicated (and fun) part is figuring out how and when to use these media queries.
+</p>
+<p>
+  We’ll return to the technical implementation later, but first we need some context of history.
+</p>
+
+## History
+- Unstyled html already works on any screen size. Responsive design is not a matter of MAKING the page work across different devices, it’s a matter of NOT BREAKING the page on different devices.
+- {{Example of unstyled CSS}}
+- noahstokes.com
+- Relationship between design and development: necessarily entangled because there are no responsive design tools.
+- Graphic Designers carried over their knowledge and process from print design to the web. The foundations of graphic design are rooted in the idea of a size and format. Prior to the web, the idea of designing something to work across multiple sizes didn’t exist. We can’t blame them for it, but the first thing designers did to start exerting their control over webpages was give them a size so they could fit existing design tools and approaches. This was a step backwards we’re still recovering from.
+- http://www.theguardian.com/technology/2012/feb/19/john-naughton-webpage-obesity
+- Proper responsive design and development requires that we change the way we think about design. Other fields of design focus on creating a “thing”, such as a poster, a logo, or an advertisement. With the web, we cannot design a “thing” instead we must design a system. We write the CSS, which is a set of rules, and then the CSS designs the page at every screen size. In some ways this is the first thing we’re expected to design this way, and it is a big departure from the classic modes and processes of graphic design.
+
+## Why Impose Widths or Include Breakpoints At All?
+- We talked about how un-styled CSS already works on all screen sizes. You may be wondering why we would introduce any breakpoints at all. It’s not about looks, which is a matter of taste. Rather it is about practical considerations:
+— Measure. In typography, the length of a line of text is called its measure. While there is variation depending on context and typeface used, there are best practices for readable, legible text. Setting a reasonable measure for reading is one of the biggest reasons we’ll be forced to impose widths/max-widths on elements and employ breakpoints.
+> “Anything from 45 to 75 characters is widely regarded as a satisfactory length of line for a single-column page set in a serifed text face in a text size. The 66-character line (counting both letters and spaces) is widely regarded as ideal. For multiple column work, a better average is 40 to 50 characters.”
+{{Show example of unstyled text getting too wide}}
+— Content visibility. Certain elements, like images, have a fixed aspect ratio. When these elements are used on a page, the shape of the window can dramatically change the amount of content that is visible. Imposing widths/max-widths will help us make sure that the around amount of content is shown within the viewport at any screen size.
+{{Example of large image spanning the full width of the page}}
+— Economy of space: Now that we’ve established that both images and text can’t be allowed to span the full width of the viewport for practical reasons, we must face the fact that at many screen sizes our primary text or images will only be a portion of the width of the window. In order to use space efficiently, we’ll often end up putting other content in the space created by the narrow elements. This is how some of the most typical website layouts, such as masonry grids and side navigation, came to be.
+{{Examples of popular websites in iFrames that exhibit this}}
+
+## Basics of Technical Implementation
+{{example of media query in code}}
+{{example of resulting code from media query}}
+
+{{example inside of a selector}}
+{{example wrapped around a selector}}
+
+<meta name=“viewport” content=“width=device-width, initial-scale=1”>
+Explain why this is necessary!
+
+## A note on units
+- px: absolute. Pretty straightforward, except on retina devices where a pixel is no longer a pixel :(
+- {{Example of px values}}
+- pt: also absolute, carry over from print. I don’t recommend using pts.
+- %: relative. This unit means different things in certain contexts, but for the most part it is the percentage of the inherited value that you would like the selector to assume.
+- {{Example of % values}}
+- em: relative. 1em = the inherited or declared font-size of the selector. This is like a powerful little variable built directly into CSS with no pre-processing required.
+- rem: relative. This behaves exactly like the em unit, except it inherits directly from the root selector (html).
+- Although the units are strictly speaking interchangeable, in almost every instance there is a unit that makes the most sense given the system you are designing. When you’re designing your CSS you want to make it as easy as possible to change your mind in the future about your design decisions. Choosing the right units makes your whole page flexible, so that you can change certain decisions, such as the text size, or overall page margin, without breaking things.
+
+## Exercise 1: Use your new skills to create a simple, fully responsive layout for the provided article, using the minimum number of breakpoints.
+
+====== Class one ends!
+
+## Review Exercise 1
+- Reiterate the messages taught above
+- Answer questions
+- ===
+- Talk about efficient and inefficient use of media queries
+- Code health! What usage of media queries is easy to read and understand to someone new to the project?
+- {{Example of project where media queries are used at root level, one for each size}}
+- {{Example of project where media queries are nested within selectors}}
+- Lesson: Media queries belong at the level of nesting where the change in the system is taking place. A good rule of thumb is that the media query should be placed inside the first element whose attributes are changing at a specific breakpoint. If its children also change at that same breakpoint, those selectors should be nested inside of the media query.
+- Mobile first vs. Desktop first, reading from the breakpoints.
+- How to choose a breakpoint (actual value)
+
+# Exercise 2: Create a responsive layout (reusable page template including navigation) for the provided content.
+- Reiterate the messages taught above
+- Answer questions
+- Talk about variables and how they relate to media queries.
+— Using variables for breakpoints
+— Named breakpoints based on device (mobile, tablet, desktop)
+— Named breakpoints based on context (blog-page-breakpoint, etc.)
+- Responsive design and flexbox! <ADD MORE
+
+# Exercise 3: Create a responsive website for the provided content, including tabular data, paragraphs of text, lists, images, and forms.
+- Reiterate the messages taught above
+- Answer questions
+- Talk about other changes that need to happen to the design on small screens besides things just getting smaller. Touch devices require larger hit areas for links, additional indication of what is interactive because hover states aren’t available.
