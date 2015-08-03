@@ -14,19 +14,19 @@ title: Designing and Building Responsively
   In practice: creating a set of rules (CSS) that work regardless of size or type of device.
 </p>
 <p>
-  It is a systematic approach to design that more closely resembles the already systematic approach to development.
+  It is a systematic approach to design that more closely resembles software development, which is already systematic.
 </p>
 
-<h2>What we will not be covering</h2>
+<h2>What we will not be covering:</h2>
 <ul>
   <li>
-    Mobile sites. These are separate versions of websites served specifically to mobile devices. Different code, different assets. Often times they will be at a unique subdomain, such as "m.domain.com".
+    <strong>Mobile sites.</strong> These are separate versions of websites served specifically to mobile devices. Different code, different assets. Often times they will be at a unique subdomain, such as "m.domain.com".
   </li>
   <li>
-    Mobile apps. These are programs built in native, non-web technologies to run on mobile devices. Many of the principles of responsive design apply here, but in the context of the respective languages and libraries used to build native apps.
+    <strong>Mobile apps.</strong> These are programs built in native, non-web technologies to run on mobile devices. Many of the principles of responsive design apply here, but in the context of the respective languages and libraries used to build native apps.
   </li>
   <li>
-    Pre-existing responsive frameworks or libaries. While there are many responsive grid systems, such as Bootstrap, we won't be using them throughout this course. They are fundamentally limited in what they can accomplish, and more importantly they limit the ways you will think about how content can be made responsive.
+    <strong>Pre-existing responsive frameworks or libaries.</strong> While there are many responsive grid systems, such as Bootstrap, we won't be using them throughout this course. They are fundamentally limited in what they can accomplish, and more importantly they limit the ways you will think about how content can be made responsive.
   </li>
 </ul>
 
@@ -35,6 +35,10 @@ title: Designing and Building Responsively
   Making a responsive design is technically simple. Media queries allow you to choose styles to apply only at certain screen sizes.
 </p>
 <script src="https://gist.github.com/andymangold/fa2df5139821c87e2050.js"></script>
+<div class="basic-media-query-example">
+  My styles change at different browser sizes!
+</div>
+</div>
 <p>
   The complicated (and fun) part is figuring out how and when to use these media queries.
 </p>
@@ -44,9 +48,9 @@ title: Designing and Building Responsively
 
 <h2>History</h2>
 <p>
-  Unstyled html already works on any screen size. Responsive design is not a matter of MAKING the page work across different devices, it’s a matter of NOT BREAKING the page on different devices.
+  Unstyled html already works on any screen size. Responsive design is not a matter of <em>making</em> the page work across different devices, it’s a matter of <em>not breaking</em> the page on different devices.
 </p>
-<code>{{Example of unstyled CSS}}</code>
+<%= partial(:external_website, :locals => {:url => "http://tilde.club/~faq/"}) %>
 <p>noahstokes.com</p>
 <p>
   Relationship between design and development: necessarily entangled because there are no responsive design tools.

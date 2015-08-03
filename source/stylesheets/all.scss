@@ -1,6 +1,6 @@
 @import "bourbon";
 
-$black: #2A3542;
+$black: #313740;
 $max-body-width: 28em;
 
 %sans-serif {
@@ -66,4 +66,51 @@ hr {
   outline: none;
   border: none;
   border-top: 0.67em solid $black;
+}
+
+.external-website {
+  border-radius: 4px;
+  box-shadow: 3px 3px 11px rgba($black, 0.3);
+  overflow: hidden;
+
+  .navbar {
+    background: $black;
+    padding: 0.4rem;
+
+    .url {
+      font-size: 12px;
+      background: lighten($black, 10%);
+      color: #fff;
+      width: 33%;
+      min-width: 320px;
+      border-radius: 2px;
+      font-family: Verdana, Helvetica, sans-serif;
+      padding: 0.2rem;
+    }
+  }
+
+  iframe {
+    display: block;
+    height: 20rem;
+    outline: none;
+    border: none;
+    width: 100%;
+  }
+}
+
+
+// Examples
+
+%example {
+  margin: 1rem 0;
+  padding: 0.75rem;
+}
+
+.basic-media-query-example {
+  @extend %example;
+  background: pink;
+
+  @media screen and (max-width: 800px) {
+    background: mediumSpringGreen;
+  }
 }
