@@ -14,19 +14,19 @@ title: Designing and Building Responsively
   In practice: creating a set of rules (CSS) that work regardless of size or type of device.
 </p>
 <p>
-  Meaningfully: It was a change that happened, and we are now beyond it. Everything that happens in the development of design from here on out will be influenced by responsive design necessarily. As far as I am concerned, every website should be built responsively by default, and soon what we now call responsive design will just be normal design.
+  It is a systematic approach to design that more closely resembles the already systematic approach to development.
 </p>
 
 <h2>What we will not be covering</h2>
 <ul>
   <li>
-    Mobile sites: separate versions of websites served specifically to mobile devices. Different code, different assets.
+    Mobile sites. These are separate versions of websites served specifically to mobile devices. Different code, different assets. Often times they will be at a unique subdomain, such as "m.domain.com".
   </li>
   <li>
-    Mobile apps: programs built in native, non-web technologies to run on mobile devices.
+    Mobile apps. These are programs built in native, non-web technologies to run on mobile devices. Many of the principles of responsive design apply here, but in the context of the respective languages and libraries used to build native apps.
   </li>
   <li>
-    “Responsive Grids”: No dependencies or libraries! The idea of a grid system, where there are a set number of columns across the page, and individual elements are span a certain number of columns, is a broken system for web design. We will not be covering it in this course, and I strongly suggest you avoid using “responsive grid” frameworks. It will hinder your learning and understanding of the true nature of the problem.
+    Pre-existing responsive frameworks or libaries. While there are many responsive grid systems, such as Bootstrap, we won't be using them throughout this course. They are fundamentally limited in what they can accomplish, and more importantly they limit the ways you will think about how content can be made responsive.
   </li>
 </ul>
 
@@ -34,6 +34,7 @@ title: Designing and Building Responsively
 <p>
   Making a responsive design is technically simple. Media queries allow you to choose styles to apply only at certain screen sizes.
 </p>
+<script src="https://gist.github.com/andymangold/fa2df5139821c87e2050.js"></script>
 <p>
   The complicated (and fun) part is figuring out how and when to use these media queries.
 </p>
