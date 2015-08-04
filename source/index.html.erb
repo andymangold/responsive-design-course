@@ -14,7 +14,7 @@ title: Designing and Building Responsively
   In practice: creating a set of rules (CSS) that work regardless of size or type of device.
 </p>
 <p>
-  It is a systematic approach to design that more closely resembles software development, which is already systematic.
+  It is a systematic approach to design that more closely resembles software development, which is fundamentally systematic.
 </p>
 
 <h2>What we will not be covering:</h2>
@@ -26,13 +26,13 @@ title: Designing and Building Responsively
     <strong>Mobile apps.</strong> These are programs built in native, non-web technologies to run on mobile devices. Many of the principles of responsive design apply here, but in the context of the respective languages and libraries used to build native apps.
   </li>
   <li>
-    <strong>Pre-existing responsive frameworks or libaries.</strong> While there are many responsive grid systems, such as Bootstrap, we won't be using them throughout this course. They are fundamentally limited in what they can accomplish, and more importantly they limit the ways you will think about how content can be made responsive.
+    <strong>Pre-existing responsive frameworks or libaries.</strong> While there are many responsive grid systems, such as <a href="http://getbootstrap.com/">Bootstrap</a>, we won't be using them throughout this course. They are fundamentally limited in what they can accomplish, and more importantly they limit the ways you will think about how content can be made responsive.
   </li>
 </ul>
 
-<h2>How to do it?</h2>
+<h2>How to do it:</h2>
 <p>
-  Making a responsive design is technically simple. Media queries allow you to choose styles to apply only at certain screen sizes.
+  Making a responsive design is technically simple. <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries">Media queries</a> allow you to choose styles to apply only when certain rules for viewport dimensions are met.
 </p>
 <script src="https://gist.github.com/andymangold/fa2df5139821c87e2050.js"></script>
 <div class="basic-media-query-example">
@@ -47,14 +47,24 @@ title: Designing and Building Responsively
 </p>
 
 <h2>History</h2>
-<p>
-  Unstyled html already works on any screen size. Responsive design is not a matter of <em>making</em> the page work across different devices, it’s a matter of <em>not breaking</em> the page on different devices.
+<p class="emphasis">
+  When thinking responsively, design and development are necessarily entangled because <em>there are no responsive design tools</em>.<sup><a href="#footnote-1">1</a></sup>
 </p>
-<%= partial(:external_website, :locals => {:url => "http://tilde.club/~faq/"}) %>
-<p>noahstokes.com</p>
+
+<%= image_tag "ai-new-document.png" %>
+<div class="caption">
+  The new document window in Adobe Illustrator.
+</div>
+<%= image_tag "ai-artboards.png" %>
+<div class="caption">
+  A view of an artboard in Adobe Illustrator.
+</div>
+<%= image_tag "opticon-layout.jpg" %>
+<div class="caption">
+  Photo-lettering artists compose layouts on a device called an &ldquo;Opticon&rdquo;.
+</div>
 <p>
-  Relationship between design and development: necessarily entangled because there are no responsive design tools.
-</p>
+  Web designers who cannot write basic code often never directly touch the finished products they&rsquo;re designing. Their role is largely to provide instructions to their team members for how the website should be built. These instructions usually take the form of images, which are very informative for static designs. However, there is no effective way to communicate a responsive design, partially due to a lack of good tools. The best way to explain how a page should behave across a variety of screen sizes is to <em>build it</em>.
 <p>
   Graphic Designers carried over their knowledge and process from print design to the web. The foundations of graphic design are rooted in the idea of a size and format. Prior to the web, the idea of designing something to work across multiple sizes didn’t exist. We can’t blame them for it, but the first thing designers did to start exerting their control over webpages was give them a size so they could fit existing design tools and approaches. This was a step backwards we’re still recovering from.
 </p>
@@ -65,10 +75,18 @@ title: Designing and Building Responsively
   Proper responsive design and development requires that we change the way we think about design. Other fields of design focus on creating a “thing”, such as a poster, a logo, or an advertisement. With the web, we cannot design a “thing” instead we must design a system. We write the CSS, which is a set of rules, and then the CSS designs the page at every screen size. In some ways this is the first thing we’re expected to design this way, and it is a big departure from the classic modes and processes of graphic design.
 </p>
 
-<h2>Why Impose Widths or Include Breakpoints At All?</h2>
+<h2>Why impose widths or include breakpoints at all?</h2>
 
 <p>
-  We talked about how un-styled CSS already works on all screen sizes. You may be wondering why we would introduce any breakpoints at all. It’s not about looks, which is a matter of taste. Rather it is about practical considerations:
+  Unstyled html already works on any screen size. Responsive design is not a matter of <em>making</em> the page work across different devices, it’s a matter of <em>not breaking</em> the page on different devices.
+</p>
+<%= partial(:external_website, :locals => {:url => "http://tilde.club/~faq/"}) %>
+<p>
+  Or as one designer puts it:
+</p>
+<%= partial(:external_website, :locals => {:url => "http://motherfuckingwebsite.com/"}) %>
+<p class="emphasis">
+  The reasons to impose a width are not just aesthetic, they are practical.
 </p>
 
 <h3>Measure</h3>
@@ -202,3 +220,9 @@ title: Designing and Building Responsively
   <li>Answer questions</li>
   <li>Talk about other changes that need to happen to the design on small screens besides things just getting smaller. Touch devices require larger hit areas for links, additional indication of what is interactive because hover states aren’t available.</li>
 </ul>
+
+
+<h1>Footnotes</h1>
+<p>
+  <a name="footnote-1">1:</a> Many design tools are trying to accomodate responsive thinking, such as <a href="http://macaw.co/">Macaw</a> and <a href="https://creative.adobe.com/products/reflow">Adobe Edge Reflow</a>, but they are not widely used.
+</p>
