@@ -7,10 +7,10 @@ title: Designing and Building Responsively
 
 <h2>What is Responsive Design?</h2>
 <p>
-  In theory: the layout, content, and design of a page should change based on the context in which it is viewed.
+  <em>In theory:</em> the layout, content, and design of a page should change based on the context in which it is viewed.
 </p>
 <p>
-  In practice: creating a set of rules (CSS) that work regardless of size or type of device.
+  <em>In practice:</em> creating a set of rules (CSS) that work regardless of size or type of device.
 </p>
 <p>
   It is a systematic approach to design that more closely resembles software development, which is fundamentally systematic.
@@ -46,6 +46,7 @@ title: Designing and Building Responsively
 </p>
 
 <h2>History</h2>
+
 <p class="emphasis">
   When thinking responsively, design and development are necessarily entangled because <em>there are no responsive design tools</em>.<sup><a href="#footnote-1">1</a></sup>
 </p>
@@ -73,19 +74,26 @@ title: Designing and Building Responsively
   Some of these patterns are beautiful truths of the visual language that apply across many different formats and media. Some however, are specific to designing for fixed dimensions and break when applied to elements of variable size.
 </p>
 <p>
-  When presented with the challenge of designing websites, graphic designers tried to apply all of the collected knowledge of their profession to this exciting new medium. However, many of the rules that worked so well for designers before could not be applied to a format without a consistent size. So, one of the first things most designers did was give the webpages they were creating fixed dimensions.
+  When presented with the challenge of designing websites, graphic designers employed all of the collected knowledge of their profession. However, many of the rules that worked so well for designers before could not be applied to a format without a consistent size. So, one of the first things most designers did was give the webpages they were creating fixed dimensions.
 </p>
 <p>
   This understandable inability to adapt our skills to a new context, an attempt to turn websites into posters, set web design back 15 years.
 </p>
+<blockquote>
+  In the beginning, webpages were simple pages of text marked up with some tags that would enable a browser to display them correctly. But that meant that the browser, not the designer, controlled how a page would look to the user, and there's nothing that infuriates designers more than having someone (or something) determine the appearance of their work. So they embarked on a long, vigorous and ultimately successful campaign to exert the same kind of detailed control over the appearance of webpages as they did on their print counterparts – right down to the last pixel.
+</blockquote>
 <p>
-  Web designers who cannot write basic code often never directly touch the finished products they&rsquo;re designing. Their role is largely to provide instructions to their team members for how the website should be built. These instructions usually take the form of images, which are very informative for static designs. However, there is no effective way to communicate a responsive design, partially due to a lack of good tools. The best way to explain how a page should behave across a variety of screen sizes is to <em>build it</em>. The line between responsive design and responsive development is blurry.
+  &mdash; <a href="http://www.theguardian.com/technology/2012/feb/19/john-naughton-webpage-obesity"><em>&ldquo;Graphic Designers are Runing the Web&rdquo;</em></a> by John Naughton.
+</p>
+<%= image_tag "popular-website.jpg" %>
+<div class="caption">
+  One of the most popular recent website designs from <a href="http://drbl.in/lkdm">Dribbble</a>.
+</div>
+<p>
+  Web designers who cannot write basic code often never directly touch the finished products they&rsquo;re designing. Their role is largely to provide instructions to their team members for how the website should be built. These instructions usually take the form of images, which are very informative for static designs. However, there is no effective way to communicate a responsive design, partially due to a lack of good tools. The best way to explain how a page should behave across a variety of screen sizes is to <em>build it</em>. This is a huge advantage to designers that have a basic understaning of CSS and can build a simple responsive layout.
 </p>
 <p>
-  http://www.theguardian.com/technology/2012/feb/19/john-naughton-webpage-obesity
-</p>
-<p>
-  Proper responsive design and development requires that we change the way we think about design. Other fields of design focus on creating a “thing”, such as a poster, a logo, or an advertisement. With the web, we cannot design a “thing” instead we must design a system. We write the CSS, which is a set of rules, and then the CSS designs the page at every screen size. In some ways this is the first thing we’re expected to design this way, and it is a big departure from the classic modes and processes of graphic design.
+  A truly responsive approach requires that we change the way we think about design. Other fields of design focus on creating a &ldquo;thing&rdquo;, such as a poster, a logo, or an advertisement. With the web, we cannot design a &ldquo;thing&rdquo; instead we must design a system: a set of rules for how the content should behave, not a snapshot of how it should look at a specific size. Usually, these systems of rules exist in our heads, and are consulted as individual decisions are made. For the first time, we can give these systems form (as CSS) and spell them out in perfect specificity.
 </p>
 
 <h2>Why impose widths or include breakpoints at all?</h2>
@@ -109,24 +117,21 @@ title: Designing and Building Responsively
 <blockquote>
   “Anything from 45 to 75 characters is widely regarded as a satisfactory length of line for a single-column page set in a serifed text face in a text size. The 66-character line (counting both letters and spaces) is widely regarded as ideal. For multiple column work, a better average is 40 to 50 characters.”
 </blockquote>
-<p>The Elements of Typographic Style, Robert Bringhurst</p>
-<pre><code>{{Show example of unstyled text getting too wide}}</code></pre>
+<p><a href="http://www.amazon.com/Elements-Typographic-Style-Robert-Bringhurst/dp/0881791326"><em>The Elements of Typographic Style</em></a> by Robert Bringhurst. See also <a href="http://webtypography.net/"><em>The Elements of Typographic Style Applied to the Web</em></a>.</p>
+<p>An example of a website with a measure that is much too long:</p>
+<%= partial(:external_website, :locals => {:url => "https://en.wikipedia.org/wiki/Measure_(typography)"}) %>
 
 <h3>Content visibility</h3>
 <p>
   Certain elements, like images, have a fixed aspect ratio. When these elements are used on a page, the shape of the window can dramatically change the amount of content that is visible. Imposing widths/max-widths will help us make sure that the around amount of content is shown within the viewport at any screen size.
 </p>
-<code>
-  {{Example of large image spanning the full width of the page}}
-</code>
+<%= partial(:external_website, :locals => {:url => "http://qz.com/471030/the-fda-has-approved-the-first-drug-made-by-a-3d-printer/"}) %>
 
 <h3>Economy of space</h3>
 <p>
   Now that we’ve established that both images and text can’t be allowed to span the full width of the viewport for practical reasons, we must face the fact that at many screen sizes our primary text or images will only be a portion of the width of the window. In order to use space efficiently, we’ll often end up putting other content in the space created by the narrow elements. This is how some of the most typical website layouts, such as masonry grids and side navigation, came to be.
 </p>
-<code>
-  {{Examples of popular websites in iFrames that exhibit this}}
-</code>
+<%= partial(:external_website, :locals => {:url => "http://www.nytimes.com/2015/08/04/science/chilly-at-work-a-decades-old-formula-may-be-to-blame.html"}) %>
 
 <h2>Basics of Technical Implementation</h2>
 <code>{{example of media query in code}}</code>
