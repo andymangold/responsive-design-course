@@ -83,7 +83,7 @@ title: Designing and Building Responsively
   In the beginning, webpages were simple pages of text marked up with some tags that would enable a browser to display them correctly. But that meant that the browser, not the designer, controlled how a page would look to the user, and there's nothing that infuriates designers more than having someone (or something) determine the appearance of their work. So they embarked on a long, vigorous and ultimately successful campaign to exert the same kind of detailed control over the appearance of webpages as they did on their print counterparts – right down to the last pixel.
 </blockquote>
 <p>
-  &mdash; <a href="http://www.theguardian.com/technology/2012/feb/19/john-naughton-webpage-obesity"><em>&ldquo;Graphic Designers are Runing the Web&rdquo;</em></a> by John Naughton.
+  &mdash; <a href="http://www.theguardian.com/technology/2012/feb/19/john-naughton-webpage-obesity"><em>&ldquo;Graphic Designers are Ruining the Web&rdquo;</em></a> by John Naughton.
 </p>
 <%= image_tag "popular-website.jpg" %>
 <div class="caption">
@@ -107,7 +107,16 @@ title: Designing and Building Responsively
 </p>
 <%= partial(:external_website, :locals => {:url => "http://motherfuckingwebsite.com/"}) %>
 <p class="emphasis">
-  The reasons to impose a width are not just aesthetic, they are <em>practical</em>.
+  The reasons to impose a width are not a matter of taste, they are <em>practical</em>.
+</p>
+
+<h3>Text Size</h3>
+<blockquote>
+  The size of your body text doesn’t depend on your personal preference. It depends on reading distance. Since computers are generally further away than books, the metric size of a desktop typeface needs to be bigger than the sizes used for printed matter.
+</blockquote>
+<p><a href="https://ia.net/know-how/responsive-typography-the-basics"><em>"Responsive Typography: The Basics"</em></a> from iA.</p>
+<p>
+  As Oliver from iA points out, the size of text chosen for various applications, whether billboards, paperbacks, or businesscards, does not vary based on how large the format is, as it first may seem, but rather how far away it will be read from.
 </p>
 
 <h3>Measure</h3>
@@ -123,7 +132,7 @@ title: Designing and Building Responsively
 
 <h3>Content visibility</h3>
 <p>
-  Certain elements, like images, have a fixed aspect ratio. When these elements are used on a page, the shape of the window can dramatically change the amount of content that is visible. Imposing widths/max-widths will help us make sure that the around amount of content is shown within the viewport at any screen size.
+  Certain elements, like images and videos, have a fixed aspect ratio. When these elements are used on a page, the shape of the window can dramatically change the amount of content that is visible. Imposing widths/max-widths will help us make sure that the around amount of content is shown within the viewport at any screen size.
 </p>
 <%= partial(:external_website, :locals => {:url => "http://qz.com/471030/the-fda-has-approved-the-first-drug-made-by-a-3d-printer/"}) %>
 
@@ -144,7 +153,7 @@ title: Designing and Building Responsively
 
 <h3>Meta tag</h3>
 <script src="https://gist.github.com/andymangold/aa6f9dbe67c05c2426a8.js"></script>
-<p>Explain why this is necessary!</p>
+<p>Some devices, without knowing you have paid special attention to how the page should look at all sizes, will attempt to automatically scale the page when it's loaded. This behavior is likely to break your layout. This meta tag tells the browser that the page should not be zoomed in or out and the width of the content should not be adjusted, which will make your CSS render as expected.</p>
 
 
 <h2>A note on units</h2>
@@ -172,10 +181,23 @@ title: Designing and Building Responsively
   Although the units are strictly speaking interchangeable, in almost every instance there is a unit that makes the most sense given the system you are designing. When you’re designing your CSS you want to make it as easy as possible to change your mind in the future about your design decisions. Choosing the right units makes your whole page flexible, so that you can change certain decisions, such as the text size, or overall page margin, without breaking things.
 </p>
 
+
+<h2>Working with the Inspector in Your Browser</h2>
+<p>
+  The inspector in your browser of choice is an excellent tool when you're doing responsive design and development. You can use it to resize the page without disturbing your other tabs, view how styles are being computed and applied in the rendered code, and tweak specific values in real time before transferring them over to your actual files.
+</p>
+
 <h2>Exercise 1:</h2>
 <p>
-  Use your new skills to create a simple, fully responsive layout for the provided article, using the minimum number of breakpoints.
+  Use your new skills to create a simple, fully responsive layout for the <%= link_to 'provided article', '/puppies.html' %>, using the minimum number of breakpoints.
 </p>
+<p>Things to keep in mind:</p>
+<ul>
+  <li>How big is your text? How does this change from desktop to mobile?</li>
+  <li>How long is your measure? If you need to add negative space, where do you add it?</li>
+  <li>How big are the images and videos on your page? How much of the screen real estate do they deserve?</li>
+  <li>How are you capitalizing on the negative space created from limiting the width of your other elements?</li>
+</ul>
 
 <!--<hr />
 
