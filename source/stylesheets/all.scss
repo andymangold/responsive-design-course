@@ -129,6 +129,7 @@ sup {
 }
 
 .caption {
+  @extend %body-text-element;
   @extend %sans-serif;
   margin: 0.5rem 0 2rem;
   font-size: 0.6rem;
@@ -155,5 +156,26 @@ img {
 
   @media screen and (max-width: 1000px) {
     background: mediumSpringGreen;
+  }
+}
+
+.thorough-media-query-example {
+  @extend %example;
+  background: pink;
+
+  @media screen and (max-width: 1000px) {
+    background: mediumSpringGreen;
+  }
+
+  @media screen and (min-width: 1200px) {
+    background: gold;
+  }
+
+  @media screen and (max-height: 500px) {
+    border-right: solid 10px indigo;
+  }
+
+  @media screen and (min-height: 700px) {
+    border-right: solid 10px maroon;
   }
 }

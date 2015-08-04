@@ -90,7 +90,7 @@ title: Designing and Building Responsively
   One of the most popular recent website designs from <a href="http://drbl.in/lkdm">Dribbble</a>.
 </div>
 <p>
-  Web designers who cannot write basic code often never directly touch the finished products they&rsquo;re designing. Their role is largely to provide instructions to their team members for how the website should be built. These instructions usually take the form of images, which are very informative for static designs. However, there is no effective way to communicate a responsive design, partially due to a lack of good tools. The best way to explain how a page should behave across a variety of screen sizes is to <em>build it</em>. This is a huge advantage to designers that have a basic understaning of CSS and can build a simple responsive layout.
+  Web designers who cannot write basic code often never directly touch the finished products they&rsquo;re designing. Their role is largely to provide instructions to their team members for how the website should be built. These instructions usually take the form of images, which are very informative for static designs. However, there is no effective way to communicate a responsive design, partially due to a lack of good tools. The best way to explain how a page should behave across a variety of screen sizes is to <em>build it</em>.<sup><a href="#footnote-2">2</a></sup> This is a huge advantage to designers that have a basic understaning of CSS and can build a simple responsive layout.
 </p>
 <p>
   A truly responsive approach requires that we change the way we think about design. Other fields of design focus on creating a &ldquo;thing&rdquo;, such as a poster, a logo, or an advertisement. With the web, we cannot design a &ldquo;thing&rdquo; instead we must design a system: a set of rules for how the content should behave, not a snapshot of how it should look at a specific size. Usually, these systems of rules exist in our heads, and are consulted as individual decisions are made. For the first time, we can give these systems form (as CSS) and spell them out in perfect specificity.
@@ -134,13 +134,16 @@ title: Designing and Building Responsively
 <%= partial(:external_website, :locals => {:url => "http://www.nytimes.com/2015/08/04/science/chilly-at-work-a-decades-old-formula-may-be-to-blame.html"}) %>
 
 <h2>Basics of Technical Implementation</h2>
-<code>{{example of media query in code}}</code>
-<code>{{example of resulting code from media query}}</code>
+<script src="https://gist.github.com/andymangold/026504016c690bf86732.js"></script>
+<div class="thorough-media-query-example">
+  My styles change at different browser sizes!
+</div>
+<p>
+  The most useful and common media queries use min and max page widths, but there are a wide variety of features available within the query. A complete list is available <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries">here</a>.
+</p>
 
-<code>{{example inside of a selector}}</code>
-<code>{{example wrapped around a selector}}</code>
-
-<code><meta name=“viewport” content=“width=device-width, initial-scale=1”></code>
+<h3>Meta tag</h3>
+<script src="https://gist.github.com/andymangold/aa6f9dbe67c05c2426a8.js"></script>
 <p>Explain why this is necessary!</p>
 
 
@@ -236,10 +239,12 @@ title: Designing and Building Responsively
   <li>Answer questions</li>
   <li>Talk about other changes that need to happen to the design on small screens besides things just getting smaller. Touch devices require larger hit areas for links, additional indication of what is interactive because hover states aren’t available.</li>
 </ul>
-
+-->
 <hr />
 <h2>Footnotes</h2>
 <p>
   <a name="footnote-1">1:</a> Many design tools are trying to accomodate responsive thinking, such as <a href="http://macaw.co/">Macaw</a> and <a href="https://creative.adobe.com/products/reflow">Adobe Edge Reflow</a>, but they are not widely used.
 </p>
- -->
+<p>
+  <a name="footnote-2">2:</a> Luckily, CSS is relatively easy to learn and approachable, unlike Objective-C, for example.
+</p>
