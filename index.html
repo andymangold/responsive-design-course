@@ -1,0 +1,318 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Designing and Building Responsively</title>
+
+    <link href="stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="stylesheets/all.css" rel="stylesheet" type="text/css" />
+    <script src="javascripts/all.js" type="text/javascript"></script>
+    <meta name=“viewport” content=“width=device-width, initial-scale=1”>
+  </head>
+
+  <body class="index">
+    <h1>Designing &amp; Building Responsively</h1>
+<hr />
+
+<h2>What is Responsive Design?</h2>
+<p>
+  <em>In theory:</em> the layout, content, and design of a page should change based on the context in which it is viewed.
+</p>
+<p>
+  <em>In practice:</em> creating a set of rules (CSS) that work regardless of size or type of device.
+</p>
+<p>
+  It is a systematic approach to design that more closely resembles software development, which is fundamentally systematic.
+</p>
+
+<h2>What we will not be covering:</h2>
+<ul>
+  <li>
+    <strong>Mobile sites.</strong> These are separate versions of websites served specifically to mobile devices. Different code, different assets. Often times they will be at a unique subdomain, such as "m.domain.com".
+  </li>
+  <li>
+    <strong>Mobile apps.</strong> These are programs built in native, non-web technologies to run on mobile devices. Many of the principles of responsive design apply here, but in the context of the respective languages and libraries used to build native apps.
+  </li>
+  <li>
+    <strong>Pre-existing responsive frameworks or libaries.</strong> While there are many responsive grid systems, such as <a href="http://getbootstrap.com/">Bootstrap</a>, we won't be using them during this course. They are fundamentally limited in what they can accomplish, and more importantly they limit the ways you will think about how content can be made responsive.
+  </li>
+</ul>
+
+<h2>How to do it:</h2>
+<p>
+  Making a responsive design is technically simple. <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries">Media queries</a> allow you to choose styles to apply only when certain rules for viewport dimensions are met.
+</p>
+<script src="https://gist.github.com/andymangold/fa2df5139821c87e2050.js"></script>
+<div class="basic-media-query-example">
+  My styles change at different browser sizes!
+</div>
+</div>
+<p>
+  The complicated (and fun) part is figuring out how and when to use these media queries.
+</p>
+<p>
+  We’ll return to the technical implementation later, but first we need some context of history.
+</p>
+
+<h2>History</h2>
+
+<p class="emphasis">
+  When thinking responsively, design and development are necessarily entangled because <em>there are no responsive design tools</em>.<sup><a href="#footnote-1">1</a></sup>
+</p>
+
+<img src="images/ai-new-document.png" />
+<div class="caption">
+  The new document window in Adobe Illustrator.
+</div>
+<img src="images/ai-artboards.png" />
+<div class="caption">
+  A view of an artboard in Adobe Illustrator.
+</div>
+<img src="images/opticon-layout.jpg" />
+<div class="caption">
+  Photo-lettering artists compose layouts on a device called an &ldquo;Opticon&rdquo;.
+</div>
+<p>
+  Graphic design's history is rooted in print, and therefore <em>fixed dimensions</em>. From these fixed dimensions, and decades of experimentation and refinement, certain patterns in typography, composition, and page layout have emerged. A working knowledge of these patterns is the foundation of graphic design as a practice and profession.
+</p>
+<img src="images/page-harmony.gif" />
+<div class="caption">
+  Four examples of methods to determine the layout of a spread, via <a href="http://retinart.net/graphic-design/secret-law-of-page-harmony/">The Secret Law of Page Harmony</a>.
+</div>
+<p>
+  Some of these patterns are beautiful truths of the visual language that apply across many different formats and media. Some however, are specific to designing for fixed dimensions and break when applied to elements of variable size.
+</p>
+<p>
+  When presented with the challenge of designing websites, graphic designers employed all of the collected knowledge of their profession. However, many of the rules that worked so well for designers before could not be applied to a format without a consistent size. So, one of the first things most designers did was give the webpages they were creating fixed dimensions.
+</p>
+<p>
+  This understandable inability to adapt our skills to a new context, an attempt to turn websites into posters, set web design back 15 years.
+</p>
+<blockquote>
+  In the beginning, webpages were simple pages of text marked up with some tags that would enable a browser to display them correctly. But that meant that the browser, not the designer, controlled how a page would look to the user, and there's nothing that infuriates designers more than having someone (or something) determine the appearance of their work. So they embarked on a long, vigorous and ultimately successful campaign to exert the same kind of detailed control over the appearance of webpages as they did on their print counterparts – right down to the last pixel.
+</blockquote>
+<p>
+  &mdash; <a href="http://www.theguardian.com/technology/2012/feb/19/john-naughton-webpage-obesity"><em>&ldquo;Graphic Designers are Ruining the Web&rdquo;</em></a> by John Naughton.
+</p>
+<img src="images/popular-website.jpg" />
+<div class="caption">
+  One of the most popular recent website designs from <a href="http://drbl.in/lkdm">Dribbble</a>.
+</div>
+<p>
+  Web designers who cannot write basic code often never directly touch the finished products they&rsquo;re designing. Their role is largely to provide instructions to their team members for how the website should be built. These instructions usually take the form of images, which are very informative for static designs. However, there is no effective way to communicate a responsive design, partially due to a lack of good tools. The best way to explain how a page should behave across a variety of screen sizes is to <em>build it</em>.<sup><a href="#footnote-2">2</a></sup> This is a huge advantage to designers that have a basic understaning of CSS and can build a simple responsive layout.
+</p>
+<p>
+  A truly responsive approach requires that we change the way we think about design. Other fields of design focus on creating a &ldquo;thing&rdquo;, such as a poster, a logo, or an advertisement. With the web, we cannot design a &ldquo;thing&rdquo; instead we must design a system: a set of rules for how the content should behave, not a snapshot of how it should look at a specific size. Usually, these systems of rules exist in our heads, and are consulted as individual decisions are made. For the first time, we can give these systems form (as CSS) and spell them out in perfect specificity.
+</p>
+
+<h2>Why impose widths or include breakpoints at all?</h2>
+
+<p>
+  Unstyled html already works on any screen size. Responsive design is not a matter of <em>making</em> the page work across different devices, it’s a matter of <em>not breaking</em> the page on different devices.
+</p>
+<div class="external-website">
+  <div class="navbar">
+    <a target="_blank" href="http://tilde.club/~faq/" class="url">http://tilde.club/~faq/</a>
+  </div>
+  <iframe src="http://tilde.club/~faq/"></iframe>
+</div>
+
+<p>
+  Or as one designer puts it:
+</p>
+<div class="external-website">
+  <div class="navbar">
+    <a target="_blank" href="http://motherfuckingwebsite.com/" class="url">http://motherfuckingwebsite.com/</a>
+  </div>
+  <iframe src="http://motherfuckingwebsite.com/"></iframe>
+</div>
+
+<p class="emphasis">
+  The reasons to impose a width are not a matter of taste, they are <em>practical</em>.
+</p>
+
+<h3>Text Size</h3>
+<blockquote>
+  The size of your body text doesn’t depend on your personal preference. It depends on reading distance. Since computers are generally further away than books, the metric size of a desktop typeface needs to be bigger than the sizes used for printed matter.
+</blockquote>
+<p><a href="https://ia.net/know-how/responsive-typography-the-basics"><em>"Responsive Typography: The Basics"</em></a> from iA.</p>
+<p>
+  As Oliver from iA points out, the size of text chosen for various applications, whether billboards, paperbacks, or businesscards, does not vary based on how large the format is, as it first may seem, but rather how far away it will be read from.
+</p>
+
+<h3>Measure</h3>
+<p>
+  In typography, the length of a line of text is called its measure. While there is variation depending on context and typeface used, there are best practices for readable, legible text. Setting a reasonable measure for reading is one of the biggest reasons we’ll be forced to impose widths/max-widths on elements and employ breakpoints.
+</p>
+<blockquote>
+  “Anything from 45 to 75 characters is widely regarded as a satisfactory length of line for a single-column page set in a serifed text face in a text size. The 66-character line (counting both letters and spaces) is widely regarded as ideal. For multiple column work, a better average is 40 to 50 characters.”
+</blockquote>
+<p><a href="http://www.amazon.com/Elements-Typographic-Style-Robert-Bringhurst/dp/0881791326"><em>The Elements of Typographic Style</em></a> by Robert Bringhurst. See also <a href="http://webtypography.net/"><em>The Elements of Typographic Style Applied to the Web</em></a>.</p>
+<p>An example of a website with a measure that is much too long:</p>
+<div class="external-website">
+  <div class="navbar">
+    <a target="_blank" href="https://en.wikipedia.org/wiki/Measure_(typography)" class="url">https://en.wikipedia.org/wiki/Measure_(typography)</a>
+  </div>
+  <iframe src="https://en.wikipedia.org/wiki/Measure_(typography)"></iframe>
+</div>
+
+
+<h3>Content visibility</h3>
+<p>
+  Certain elements, like images and videos, have a fixed aspect ratio. When these elements are used on a page, the shape of the window can dramatically change the amount of content that is visible. Imposing widths/max-widths will help us make sure that the around amount of content is shown within the viewport at any screen size.
+</p>
+<div class="external-website">
+  <div class="navbar">
+    <a target="_blank" href="http://qz.com/471030/the-fda-has-approved-the-first-drug-made-by-a-3d-printer/" class="url">http://qz.com/471030/the-fda-has-approved-the-first-drug-made-by-a-3d-printer/</a>
+  </div>
+  <iframe src="http://qz.com/471030/the-fda-has-approved-the-first-drug-made-by-a-3d-printer/"></iframe>
+</div>
+
+
+<h3>Economy of space</h3>
+<p>
+  Now that we’ve established that both images and text can’t be allowed to span the full width of the viewport for practical reasons, we must face the fact that at many screen sizes our primary text or images will only be a portion of the width of the window. In order to use space efficiently, we’ll often end up putting other content in the space created by the narrow elements. This is how some of the most typical website layouts, such as masonry grids and side navigation, came to be.
+</p>
+<div class="external-website">
+  <div class="navbar">
+    <a target="_blank" href="http://www.nytimes.com/2015/08/04/science/chilly-at-work-a-decades-old-formula-may-be-to-blame.html" class="url">http://www.nytimes.com/2015/08/04/science/chilly-at-work-a-decades-old-formula-may-be-to-blame.html</a>
+  </div>
+  <iframe src="http://www.nytimes.com/2015/08/04/science/chilly-at-work-a-decades-old-formula-may-be-to-blame.html"></iframe>
+</div>
+
+
+<h2>Basics of Technical Implementation</h2>
+<script src="https://gist.github.com/andymangold/026504016c690bf86732.js"></script>
+<div class="thorough-media-query-example">
+  My styles change at different browser sizes!
+</div>
+<p>
+  The most useful and common media queries use min and max page widths, but there are a wide variety of features available within the query. A complete list is available <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries">here</a>.
+</p>
+
+<h3>Meta tag</h3>
+<script src="https://gist.github.com/andymangold/aa6f9dbe67c05c2426a8.js"></script>
+<p>Some devices, without knowing you have paid special attention to how the page should look at all sizes, will attempt to automatically scale the page when it's loaded. This behavior is likely to break your layout. This meta tag tells the browser that the page should not be zoomed in or out and the width of the content should not be adjusted, which will make your CSS render as expected.</p>
+
+
+<h2>A note on units</h2>
+<ul>
+  <li>
+    <strong>px:</strong> Absolute. Pretty straightforward, except on retina devices where a pixel is no longer a pixel :(
+    <code>{{Example of px values}}</code>
+  </li>
+  <li>
+    <strong>pt:</strong> Also absolute, carry over from print. I don’t recommend using pts.
+  </li>
+  <li>
+    <strong>%:</strong> Relative. This unit means different things in certain contexts, but for the most part it is the percentage of the inherited value that you would like the selector to assume.
+    <code>{{Example of % values}}</code>
+  </li>
+  <li>
+    <strong>em:</strong> Relative. 1em = the inherited or declared font-size of the selector. This is like a powerful little variable built directly into CSS with no pre-processing required.
+  </li>
+  <li>
+    <strong>rem:</strong> Relative. This behaves exactly like the em unit, except it inherits directly from the root selector (html).
+  </li>
+</ul>
+
+<p>
+  Although the units are strictly speaking interchangeable, in almost every instance there is a unit that makes the most sense given the system you are designing. When you’re designing your CSS you want to make it as easy as possible to change your mind in the future about your design decisions. Choosing the right units makes your whole page flexible, so that you can change certain decisions, such as the text size, or overall page margin, without breaking things.
+</p>
+
+
+<h2>Working with the Inspector in Your Browser</h2>
+<p>
+  The inspector in your browser of choice is an excellent tool when you're doing responsive design and development. You can use it to resize the page without disturbing your other tabs, view how styles are being computed and applied in the rendered code, and tweak specific values in real time before transferring them over to your actual files.
+</p>
+
+<h2>Exercise 1:</h2>
+<p>
+  Use your new skills to create a simple, fully responsive layout for the <a href="/puppies.html">provided article</a> (<a href="https://www.dropbox.com/s/9wf0czmw3auw86d/Exercise%201.zip?dl=0">source files</a>), using the minimum number of breakpoints.
+</p>
+<p>Things to keep in mind:</p>
+<ul>
+  <li>How big is your text? How does this change from desktop to mobile?</li>
+  <li>How long is your measure? If you need to add negative space, where do you add it?</li>
+  <li>How big are the images and videos on your page? How much of the screen real estate do they deserve?</li>
+  <li>How are you capitalizing on the negative space created from limiting the width of your other elements?</li>
+</ul>
+
+<!--<hr />
+
+<h2>Schedule</h2>
+<ul>
+  <li>Review Exercise 1</li>
+  <li>Reiterate the messages taught above</li>
+  <li>Answer questions</li>
+  <li>Talk about efficient and inefficient use of media queries</li>
+  <li>Code health! What usage of media queries is easy to read and understand to someone new to the project?</li>
+</ul>
+
+<h2>Efficient Use of Media Queries</h2>
+
+<code>
+  {{Example of project where media queries are used at root level, one for each size}}
+</code>
+<code>
+  {{Example of project where media queries are nested within selectors}}
+</code>
+<p>
+  Lesson: Media queries belong at the level of nesting where the change in the system is taking place. A good rule of thumb is that the media query should be placed inside the first element whose attributes are changing at a specific breakpoint. If its children also change at that same breakpoint, those selectors should be nested inside of the media query.
+</p>
+<p>
+  Mobile first vs. Desktop first, reading from the breakpoints.
+</p>
+<p>
+  How to choose a breakpoint (actual value)
+</p>
+
+<h2>Exercise 2:</h2>
+<p>
+  Create a responsive layout (reusable page template including navigation) for the provided content.
+</p>
+
+
+<hr />
+
+
+<h2>Schedule</h2>
+<ul>
+  <li>Reiterate the messages taught above</li>
+  <li>Answer questions</li>
+  <li>Talk about variables and how they relate to media queries.</li>
+  <li>Using variables for breakpoints</li>
+  <li>Named breakpoints based on device (mobile, tablet, desktop)</li>
+  <li>Named breakpoints based on context (blog-page-breakpoint, etc.)</li>
+  <li>Responsive design and flexbox!</li>
+</ul>
+
+<h2>Exercise 3</h2>
+<p>
+  Create a responsive website for the provided content, including tabular data, paragraphs of text, lists, images, and forms.
+</p>
+
+<hr />
+
+<h2>Schedule</h2>
+<ul>
+  <li>Reiterate the messages taught above</li>
+  <li>Answer questions</li>
+  <li>Talk about other changes that need to happen to the design on small screens besides things just getting smaller. Touch devices require larger hit areas for links, additional indication of what is interactive because hover states aren’t available.</li>
+</ul>
+-->
+<hr />
+<h2>Footnotes</h2>
+<p>
+  <a name="footnote-1">1:</a> Many design tools are trying to accomodate responsive thinking, such as <a href="http://macaw.co/">Macaw</a> and <a href="https://creative.adobe.com/products/reflow">Adobe Edge Reflow</a>, but they are not widely used.
+</p>
+<p>
+  <a name="footnote-2">2:</a> Luckily, CSS is relatively easy to learn and approachable, unlike Objective-C, for example.
+</p>
+
+  </body>
+</html>
