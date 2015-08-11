@@ -52,6 +52,7 @@ blockquote {
 }
 
 h1 {
+  @extend %body-text-element;
   @extend %serif;
   font-weight: 900;
   line-height: 110%;
@@ -59,6 +60,7 @@ h1 {
 }
 
 h2 {
+  @extend %body-text-element;
   @extend %serif;
   font-weight: 900;
   font-size: 1.5em;
@@ -67,6 +69,7 @@ h2 {
 
 h3 {
   @extend %sans-serif;
+  max-width: $max-body-width / 0.65;
   font-weight: 900;
   font-size: 0.65em;
   letter-spacing: 0.3em;
@@ -80,6 +83,15 @@ hr {
   border: none;
   border-top: 0.67em solid $black;
   margin: 8rem 0;
+}
+
+code {
+  background: lighten($black, 70%);
+  font-size: 0.6em;
+  padding: 0.2em 0.6em;
+  border-radius: 3px;
+  display: inline-block;
+  vertical-align: 20%;
 }
 
 .external-website {
@@ -143,11 +155,14 @@ img {
 }
 
 
+
+
 // Examples
 
 %example {
   margin: 1rem 0;
   padding: 0.75rem;
+  box-sizing: border-box;
 }
 
 .basic-media-query-example {
@@ -177,5 +192,37 @@ img {
 
   @media screen and (min-height: 700px) {
     border-right: solid 10px maroon;
+  }
+}
+
+.two-ways-theoretical-example {
+  @extend %example;
+  background: pink;
+
+  @media screen and (max-width: 1200px) {
+    background: mediumSpringGreen;
+  }
+}
+
+.two-ways-practical-example {
+  margin: 1rem 0;
+
+  .example-left,
+  .example-right {
+    @extend %example;
+    margin: 0;
+
+    @media screen and (min-width: 1201px) {
+      display: inline-block;
+      width: 50%;
+    }
+  }
+
+  .example-left {
+    background: gold;
+  }
+
+  .example-right {
+    background: mediumSpringGreen;
   }
 }
