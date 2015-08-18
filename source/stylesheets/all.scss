@@ -226,3 +226,29 @@ img {
     background: mediumSpringGreen;
   }
 }
+
+.flex-box-example {
+  @extend %example;
+  background-color: gold;
+  display: flex;
+  flex-direction: row;
+
+  @media screen and (max-width: 1050px) {
+    flex-direction: column;
+  }
+
+  .example-left {
+    background: mediumSpringGreen;
+  }
+
+  .example-right {
+    background: pink;
+  }
+
+  .example-left,
+  .example-right {
+    padding: 0.75em;
+    box-sizing: border-box;
+    flex: 1;
+  }
+}

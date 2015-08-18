@@ -300,26 +300,76 @@ title: Designing and Building Responsively
 </ul>
 
 
-<!--<hr />
-
-
+<hr />
+<h1 id="day3">Day Three</h1>
 <h2>Schedule</h2>
 <ul>
-  <li>Reiterate the messages taught above</li>
-  <li>Answer questions</li>
-  <li>Talk about variables and how they relate to media queries.</li>
-  <li>Using variables for breakpoints</li>
-  <li>Named breakpoints based on device (mobile, tablet, desktop)</li>
-  <li>Named breakpoints based on context (blog-page-breakpoint, etc.)</li>
-  <li>Responsive design and flexbox!</li>
+  <li>Review Exercise 2</li>
+  <li>Lesson: Variables and Responsive Design</li>
+  <li>Lesson: Flexbox and Responsive Design</li>
+  <li>Q&amp;A</li>
+  <li>Introduction of Exercise 3</li>
+  <li>In Class Work Time</li>
 </ul>
+
+<hr />
+
+<h2>Variables and Responsive Design</h2>
+
+<p>
+  Using SASS, any attribute value can be saved to a handy variable and used later. Using variables can save you time, make your code more readable, and most importantly make it easier to make changes in the future.
+</p>
+
+<script src="https://gist.github.com/andymangold/f77c049507fe801b512b.js"></script>
+
+<p>
+  Many frameworks, including <%= link_to 'Bootstrap', 'http://getbootstrap.com/' %>, use this technique to create project wide breakpoints for different screen sizes.
+</p>
+
+<script src="https://gist.github.com/andymangold/4f3b2debf7ef8f37c835.js"></script>
+
+<p>
+  This approach limits the fidelity of your site&rsquo;s responsiveness and will result in you trying to fit your content into pre-determined breakpoints instead of thinking about each component of your site individually. This is promoted as an easier way, but is actually limiting.
+</p>
+
+<p>
+  However, there are some circumstances where you&rsquo;ll want to use a variable to connect two or more media queries that are dependent on one-another.
+</p>
+
+<script src="https://gist.github.com/andymangold/69b23dbc52af728331e5.js"></script>
+
+<p>
+  Just like everything else we&rsquo;ve discussed in the course, every line of code you write should be in service of the system you&rsquo;re designing, and as much as possible form should match function. A good metric for this is that you should be giving your variables names that relate to your design, not generic ones.
+</p>
+
+
+<h2>Responsive Design and Flexbox</h2>
+
+<p>
+  Flexbox is a relatively new, more sophisticated way to position content on the web. It not only allows for more complex behaviors in layouts, but has a number of traits that make it particularly suited to working responsively.
+</p>
+<p>
+  <%= link_to 'CSS Tricks Guide to Flexbox', 'https://css-tricks.com/snippets/css/a-guide-to-flexbox/' %>
+</p>
+
+<script src="https://gist.github.com/andymangold/48be4dcd0add6722df72.js"></script>
+
+<div class="flex-box-example">
+  <div class="example-left">
+    My styles change at different browser sizes!
+  </div><div class="example-right">
+    Hey, mine do too!
+  </div>
+</div>
+
+
 
 <h2>Exercise 3</h2>
 <p>
   Create a responsive website for the provided content, including tabular data, paragraphs of text, lists, images, and forms.
 </p>
 
-<hr />
+<!--<hr />
 
 <h2>Schedule</h2>
 <ul>
