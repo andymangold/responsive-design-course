@@ -152,6 +152,10 @@ img {
   max-width: 100%;
   display: block;
   margin: 2rem 0 0;
+
+  &.mobile-hit-area {
+    max-width: 400px;
+  }
 }
 
 
@@ -250,5 +254,41 @@ img {
     padding: 0.75em;
     box-sizing: border-box;
     flex: 1;
+  }
+}
+
+
+.mobile-interactive-example {
+  @extend %example;
+  @extend %sans-serif;
+  background: lighten($black, 70%);
+
+  a {
+    display: inline-block;
+    margin-right: 1em;
+    text-decoration: none;
+    font-size: 18px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    @media screen and (max-width: 1000px) {
+      padding: 0.3em 0.5em;
+      margin-right: 0.5em;
+      margin-bottom: 0.5em;
+      background-color: $black;
+      color: #fff;
+      border-radius: 0.2em;
+    }
+
+    @media screen and (max-width: 700px) {
+      display: block;
+      margin-right: 0;
+    }
+  }
+
+  p {
+    font-size: 18px;
   }
 }

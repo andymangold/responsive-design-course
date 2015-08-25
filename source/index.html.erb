@@ -372,15 +372,70 @@ title: Designing and Building Responsively
   <a href="https://www.dropbox.com/s/on9d3s45sc1g7xc/exercise-3-materials.zip?dl=0">Download</a> the provided content. Place all of the .html.erb files in the 'source' folder of your repository, and all of the images from the 'puppies' folder into your 'images' folder. The first few puppies should already be there from the first week. Default content has been provided for all pages except the index, that page is up to you! As long as you have the layout file from week two and the puppies.html.erb fromw week one, you should find that after you add these files you can navigate from page to page. If not, check that all your files have the correct filename and are in the correct location.
 </p>
 
-<!--<hr />
-
+<hr />
+<h1 id="day4">Day Four</h1>
 <h2>Schedule</h2>
 <ul>
-  <li>Reiterate the messages taught above</li>
-  <li>Answer questions</li>
-  <li>Talk about other changes that need to happen to the design on small screens besides things just getting smaller. Touch devices require larger hit areas for links, additional indication of what is interactive because hover states aren’t available.</li>
+  <li>Review Exercise 3</li>
+  <li>Lesson: Beyond Layout &mdash; Further Responsive Optimization</li>
+  <li>Q&amp;A</li>
+  <li>Celebrate everything we&rsquo;ve learned and feel good!</li>
+  <li>One-on-One Q&amp;A</li>
 </ul>
--->
+
+<hr />
+
+<h1>Beyond Layout &mdash; Further Responsive Optimization</h1>
+
+<p>
+  Everything we&rsquo;ve covered up to this point deals with responsive design as it pertains to screen size. While viewport size is definitely the most important variable to consider, there are others that will affect the design of our site.
+</p>
+
+<p>
+  Touch screen devices, now widespread, are fundamentally different than interacting with a page through a mouse or trackpad. There is no <code>:hover</code> on a touch screen device. This means that some behaviors will be lost completely, and some of your elements may no longer be evidently interactive.
+</p>
+
+<p>
+  Fingers lack the precision of a cursor. This can affect your design decisions in a number of ways. Some interactive elements may be too small to feel comfortable, or perhaps too many interactive regions are too closely packed together, which could cause the visitor to accidentally select the wrong one.
+</p>
+
+<p>
+  Apple has provided some guidance on this topic as part of their <%= link_to 'Human Interface Guidelines', "https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/" %>. I like to picture the typical tab bar of an app and imagine that five different buttons can fit across comfortably. This works out to a rough minimum of around 64px square for any interactive elements, which I think is a good rule of thumb.
+</p>
+
+<%= image_tag 'mobile-hit-area.png', class: 'mobile-hit-area' %>
+
+<p>
+  In addition to changing the actual hit-areas of your links and interactive elements, a different appearance for the buttons may be appropriate as well. Even if an element is &ldquo;easy&rdquo; to tap because you've made the hit area large, if the whole area doesn&rsquo;t appear tappable, it can feel precarious.
+</p>
+
+<script src="https://gist.github.com/andymangold/ead8fbc3b13908e7bd51.js"></script>
+
+<div class="mobile-interactive-example">
+  <a href="#">Page One</a>
+  <a href="#">Page Two</a>
+  <a href="#">Page Three</a>
+  <a href="#">Page Four</a>
+  <p>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  </p>
+</div>
+
+<p>
+  In many circumstances, it will be acceptable to apply all of your touch screen specific styling to all of your small screen sizes. After all, almost every small screen viewing your site will be a touch device (for now). However, to do it properly, account for touch devices with a greater resolution, and make your site best prepared for the next major shift in interaction, the best thing to do is apply specific styles based on whether or not the screen viewing your page is a touch screen or not.
+</p>
+
+<p>
+  This is possible through a number of tools, my preferred method is using <%= link_to "Modernizr", "http://modernizr.com/" %>.
+</p>
+
+<hr />
+
+<h1>The End!</h1>
+
+
+
+
 <hr />
 <h2>Footnotes</h2>
 <p>
