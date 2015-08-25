@@ -1,5 +1,5 @@
 /* line 7, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
-h3, .caption {
+h3, .caption, .mobile-interactive-example {
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif; }
 
 /* line 11, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
@@ -123,88 +123,121 @@ img {
   max-width: 100%;
   display: block;
   margin: 2rem 0 0; }
+  /* line 156, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+  img.mobile-hit-area {
+    max-width: 400px; }
 
-/* line 162, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+/* line 166, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
 .basic-media-query-example, .thorough-media-query-example, .two-ways-theoretical-example, .two-ways-practical-example .example-left,
-.two-ways-practical-example .example-right, .flex-box-example {
+.two-ways-practical-example .example-right, .flex-box-example, .mobile-interactive-example {
   margin: 1rem 0;
   padding: 0.75rem;
   box-sizing: border-box; }
 
-/* line 168, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+/* line 172, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
 .basic-media-query-example {
   background: pink; }
   @media screen and (max-width: 1000px) {
-    /* line 168, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+    /* line 172, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
     .basic-media-query-example {
       background: mediumSpringGreen; } }
 
-/* line 177, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+/* line 181, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
 .thorough-media-query-example {
   background: pink; }
   @media screen and (max-width: 1000px) {
-    /* line 177, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+    /* line 181, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
     .thorough-media-query-example {
       background: mediumSpringGreen; } }
   @media screen and (min-width: 1200px) {
-    /* line 177, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+    /* line 181, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
     .thorough-media-query-example {
       background: gold; } }
   @media screen and (max-height: 500px) {
-    /* line 177, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+    /* line 181, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
     .thorough-media-query-example {
       border-right: solid 10px indigo; } }
   @media screen and (min-height: 700px) {
-    /* line 177, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+    /* line 181, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
     .thorough-media-query-example {
       border-right: solid 10px maroon; } }
 
-/* line 198, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+/* line 202, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
 .two-ways-theoretical-example {
   background: pink; }
   @media screen and (max-width: 1200px) {
-    /* line 198, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+    /* line 202, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
     .two-ways-theoretical-example {
       background: mediumSpringGreen; } }
 
-/* line 207, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+/* line 211, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
 .two-ways-practical-example {
   margin: 1rem 0; }
-  /* line 210, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+  /* line 214, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
   .two-ways-practical-example .example-left,
   .two-ways-practical-example .example-right {
     margin: 0; }
     @media screen and (min-width: 1201px) {
-      /* line 210, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+      /* line 214, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
       .two-ways-practical-example .example-left,
       .two-ways-practical-example .example-right {
         display: inline-block;
         width: 50%; } }
-  /* line 221, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+  /* line 225, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
   .two-ways-practical-example .example-left {
     background: gold; }
-  /* line 225, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+  /* line 229, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
   .two-ways-practical-example .example-right {
     background: mediumSpringGreen; }
 
-/* line 230, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+/* line 234, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
 .flex-box-example {
   background-color: gold;
   display: flex;
   flex-direction: row; }
   @media screen and (max-width: 1050px) {
-    /* line 230, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+    /* line 234, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
     .flex-box-example {
       flex-direction: column; } }
-  /* line 240, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+  /* line 244, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
   .flex-box-example .example-left {
     background: mediumSpringGreen; }
-  /* line 244, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+  /* line 248, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
   .flex-box-example .example-right {
     background: pink; }
-  /* line 248, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+  /* line 252, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
   .flex-box-example .example-left,
   .flex-box-example .example-right {
     padding: 0.75em;
     box-sizing: border-box;
     flex: 1; }
+
+/* line 261, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+.mobile-interactive-example {
+  background: #e8eaee; }
+  /* line 266, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+  .mobile-interactive-example a {
+    display: inline-block;
+    margin-right: 1em;
+    text-decoration: none;
+    font-size: 18px; }
+    /* line 272, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+    .mobile-interactive-example a:hover {
+      text-decoration: underline; }
+    @media screen and (max-width: 1000px) {
+      /* line 266, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+      .mobile-interactive-example a {
+        padding: 0.3em 0.5em;
+        margin-right: 0.5em;
+        margin-bottom: 0.5em;
+        background-color: #313740;
+        color: #fff;
+        border-radius: 0.2em; } }
+    @media screen and (max-width: 700px) {
+      /* line 266, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+      .mobile-interactive-example a {
+        display: block;
+        margin-right: 0; } }
+  /* line 291, /Users/andymangold/Desktop/repos/responsive-design-course/source/stylesheets/all.scss */
+  .mobile-interactive-example p {
+    font-size: 18px; }
